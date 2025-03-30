@@ -11,7 +11,7 @@ import TopBar from '../../components/TopBar';
 import ColoredButton from '../../components/ColoredButton';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
-import api from '../../apis/api'; 
+import api from '../../apis/api';
 
 const projectId = 'dc63eab2c58f37e0923fcde703cb4fb2';
 const metadata = {
@@ -45,7 +45,12 @@ export default function WalletConnectScreen() {
     const mintToken = async () => {
         setLoading(true);
         try {
-            const toAddress = await AsyncStorage.getItem('walletAddress');
+            const toAddress = walletAddress
+                ? walletAddress.split(":").length >= 3
+                    ? walletAddress.split(":")[2]
+                    : ""
+                : "";
+
             const userId = await AsyncStorage.getItem('userId');
             const tokenURI = 'https://example.com/metadata/1';
 
@@ -61,10 +66,10 @@ export default function WalletConnectScreen() {
                 userId
             });
 
-            if (response.data.success) {
+            if (response.data.status == "success") {
                 Alert.alert('Success', response.data.message || 'Minting successful!');
             } else {
-                Alert.alert('Error', response.data.message || 'Minting failed');
+                Alert.alert('Success', response.data.message || 'Minting failed');
             }
         } catch (error: any) {
             if (error.response) {

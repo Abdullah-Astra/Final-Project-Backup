@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, SafeAreaView, Image} from 'react-native';
+import { View, Text, SafeAreaView, Image,} from 'react-native';
+import Gif from 'react-native-gif';
 import styles from './GetStartedScreenStyle';
 import CustomButton from '../../components/CustomButton'
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -24,7 +25,8 @@ export default function GetStartedScreen() {
   const text = 'Sign Up'
   return (
     <SafeAreaView style={styles.container}>
-      <Image
+      <Gif 
+        resizeMode="cover" 
         source={require('../../assets/images/signup.gif')} 
         style={styles.image}
       />

@@ -12,6 +12,7 @@ import api from '../../apis/api';
 type RootStackParamList = {
     ProfileScreen: undefined;
     SignUpScreen: undefined;
+    ContinueScreen: undefined;
 };
 
 export default function LoginScreen() {
@@ -39,7 +40,7 @@ export default function LoginScreen() {
                 await AsyncStorage.setItem('email', email);
 
                 Alert.alert("Success", response.data.message);
-                navigation.navigate('ProfileScreen');
+                navigation.navigate('ContinueScreen');
             } else {
                 Alert.alert("Error", response.data?.message || "Login failed.");
             }

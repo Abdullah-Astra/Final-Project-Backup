@@ -25,7 +25,7 @@ const ContinueScreen = () => {
         <SafeAreaView style={styles.container}>
             <View style={styles.content}>
                 <Image
-                    source={{ uri: 'astra_logo' }}
+                    source={require('../../assets/images/astra-logo.gif')}
                     style={styles.TinyLogo}
                 />
                 <Text style={styles1.subtitle}>

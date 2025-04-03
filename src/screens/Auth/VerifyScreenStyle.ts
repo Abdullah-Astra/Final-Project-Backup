@@ -11,6 +11,15 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 20,
     left: 20,
+    zIndex: 999
+  },
+  subtitle1: {
+    color: '#E0E0E0',
+    fontSize: 24,
+    marginBottom: 5,
+    fontFamily: 'Poppins-Regular',
+    textAlign: 'left',
+    width: '100%',
   },
   fields: {
     justifyContent: 'center',
@@ -53,6 +62,7 @@ const styles = StyleSheet.create({
   otpContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
+    alignSelf: 'center',
     marginBottom: 5,
     marginTop: 50,
     marginLeft: 16,
@@ -64,6 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#292929',
     color: 'white',
     fontSize: 18,
+    alignSelf: 'center',
     textAlign: 'center',
     marginHorizontal: 5,
     borderWidth: 1,

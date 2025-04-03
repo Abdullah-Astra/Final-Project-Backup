@@ -39,7 +39,7 @@ export default function DocumentScanScreen() {
 
     setTimeout(() => {
       captureImage();
-    }, 3000);
+    }, 5000);
   }, []);
 
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -101,7 +101,7 @@ export default function DocumentScanScreen() {
         icon1="close"
         icon2="information-circle-outline"
         title="Document Scan"
-        onPressIcon1={() => console.log('Close pressed')}
+        onPressIcon1={() => navigation.goBack()}
         onPressIcon2={() => console.log('Info pressed')}
       />
 

@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 20,
     left: 20,
+    zIndex: 999, 
   },
   fields: {
     justifyContent: 'center',

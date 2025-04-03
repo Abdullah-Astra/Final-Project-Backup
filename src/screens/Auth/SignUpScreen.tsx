@@ -4,7 +4,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import styles from './SignUpScreenStyle';
-import ColoredButton from '../../components/ColoredButton';
 import api from '../../apis/api';
 import CustomButton from '../../components/CustomButton';
 

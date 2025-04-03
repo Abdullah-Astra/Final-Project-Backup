@@ -12,6 +12,8 @@ import ColoredButton from '../../components/ColoredButton';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import api from '../../apis/api';
+import CustomButton from '../../components/CustomButton';
+import ColoredButton2 from '../../components/ColoredButton2';
 
 const projectId = 'dc63eab2c58f37e0923fcde703cb4fb2';
 const metadata = {
@@ -55,7 +57,7 @@ export default function WalletConnectScreen() {
             const tokenURI = 'https://example.com/metadata/1';
 
             if (!toAddress || !userId) {
-                Alert.alert('Error', 'Wallet address or User ID not found');
+                Alert.alert('Hey!', 'Wallet address not found. Make sure you have connected to the wallet.');
                 setLoading(false);
                 return;
             }
@@ -87,7 +89,7 @@ export default function WalletConnectScreen() {
 
     return (
         <View style={styles.container}>
-            <TopBar onBackPress={() => { }} onQrPress={() => console.log('QR Pressed')} />
+            <TopBar onBackPress={() => {navigation.goBack()}} onQrPress={() => console.log('QR Pressed')} />
             <View style={styles.container2}>
                 <Text style={styles1.title}>Connect to your Wallet</Text>
                 <Text style={styles1.description}>
@@ -96,9 +98,10 @@ export default function WalletConnectScreen() {
             </View>
             <AppKitButton />
             <AppKit />
+            
             {walletAddress && <Text style={styles1.description}>Connected Wallet: {walletAddress}</Text>}
-            <ColoredButton text='Continue to Face Scan' onPress={() => navigation.navigate('FaceScanScreen')} isEnabled={!!walletAddress} />
-            <ColoredButton text='Mint Token' onPress={mintToken} isEnabled={!!walletAddress && !loading} />
+            {!walletAddress && <ColoredButton text='Continue to Face Scan' onPress={() => navigation.navigate('FaceScanScreen')} isEnabled={!walletAddress} />} 
+
         </View>
     );
 }

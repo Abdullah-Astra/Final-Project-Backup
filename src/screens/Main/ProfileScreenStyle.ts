@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     paymentCards: {
         width: '100%',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         marginTop: 40,
         alignItems: 'center',
         textAlign: 'center',
@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
         paddingVertical: 14,
         paddingHorizontal: 16,
         borderRadius: 8,
-        width: 172  ,
-        height: 122
+        width: 172, // Default width
+        height: 122, // Default height
     },
     walletButton: {
         backgroundColor: '#FF5733',

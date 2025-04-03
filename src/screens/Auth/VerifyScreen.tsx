@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert, Keyboard } from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Alert, Keyboard, Dimensions } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './VerifyScreenStyle';
 import styles1 from '../../styles/style';
@@ -21,14 +21,33 @@ type Props = {
 
 export default function VerifyScreen({ route }: Props) {
     const [code, setCode] = useState(["", "", "", "", "", ""]);
-    const [timer, setTimer] = useState(39);
+    const [timer, setTimer] = useState(59); // Set the timer to 59
     const [isVerifying, setIsVerifying] = useState(false);
     const email = route.params.email;
 
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
+    // Get screen width for responsiveness
+    const { width } = Dimensions.get('window');
+
     // Create an array of refs for each input field
     const inputRefs = useRef<(TextInput | null)[]>([]);
+
+    useEffect(() => {
+        // Start the timer when the component mounts
+        const interval = setInterval(() => {
+            setTimer((prevTimer) => {
+                if (prevTimer <= 1) {
+                    clearInterval(interval); // Clear the interval when the timer reaches 0
+                    return 0;
+                }
+                return prevTimer - 1;
+            });
+        }, 1000); // Update the timer every second
+
+        // Cleanup the interval when the component unmounts
+        return () => clearInterval(interval);
+    }, []); // Empty dependency array ensures it runs only once on mount
 
     const handleVerify = async () => {
         const verificationCode = code.join("");
@@ -59,7 +78,7 @@ export default function VerifyScreen({ route }: Props) {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.backButton}>
+            <TouchableOpacity onPress={()=> {navigation.goBack()}} style={styles.backButton}>
                 <Ionicons name="arrow-back" size={24} color="white" />
             </TouchableOpacity>
 
@@ -68,7 +87,7 @@ export default function VerifyScreen({ route }: Props) {
             </Text>
 
             <View style={styles.fields}>
-                <Text style={styles1.subtitle}>Verify your Email to Get Started</Text>
+                <Text style={styles.subtitle1}>Verify your Email to Get Started</Text>
                 <Text style={styles1.description}>
                     Type the code we have just sent you on {' '}
                     <Text style={styles.email}>{email}</Text>
@@ -81,7 +100,10 @@ export default function VerifyScreen({ route }: Props) {
                             ref={(el) => {
                                 if (el) inputRefs.current[index] = el;
                             }}
-                            style={styles.otpInput}
+                            style={[styles.otpInput, {
+                                width: width < 375 ? 45 : 50,
+                                height: width < 375 ? 45 : 50,
+                            }]}
                             keyboardType="numeric"
                             maxLength={1}
                             value={digit}
@@ -93,7 +115,7 @@ export default function VerifyScreen({ route }: Props) {
                                 if (text && index < 5) {
                                     inputRefs.current[index + 1]?.focus();
                                 } else if (index === 5) {
-                                    Keyboard.dismiss(); 
+                                    Keyboard.dismiss();
                                 }
                             }}
                             onKeyPress={({ nativeEvent }) => {

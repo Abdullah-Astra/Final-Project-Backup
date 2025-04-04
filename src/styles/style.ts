@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
         color: '#E0E0E0',
         fontSize: 32,
         marginBottom: -3,
-        fontFamily: 'Poppins-Regular'
+        fontFamily: 'Poppins-Regular',
+        textAlign: 'left',
+        width: '100%',
     },
     description: {
         color: '#bbb',

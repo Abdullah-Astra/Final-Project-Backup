@@ -25,8 +25,7 @@ export default function GetStartedScreen() {
   const text = 'Sign Up'
   return (
     <SafeAreaView style={styles.container}>
-      <Gif 
-        resizeMode="cover" 
+      <Image
         source={require('../../assets/images/signup.gif')} 
         style={styles.image}
       />

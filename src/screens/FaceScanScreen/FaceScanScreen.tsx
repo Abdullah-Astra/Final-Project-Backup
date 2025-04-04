@@ -42,8 +42,6 @@ export default function FaceScanScreen() {
 
         setTimeout(() => {
             captureImage();
-            setIsEnabled(true);
-            setButtonText('Next');
         }, 5000);
     }, []);
 
@@ -57,6 +55,7 @@ export default function FaceScanScreen() {
         if (!cameraRef.current) return;
 
         try {
+            
             const photo = await cameraRef.current.takePhoto();
             console.log("Image Captured:", photo.path);
             setCapturedImage('file://' + photo.path);

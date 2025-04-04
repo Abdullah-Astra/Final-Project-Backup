@@ -15,9 +15,9 @@ type RootStackParamList = {
 
 export default function WalletScreen() {
 
-     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
     const handleStart = () => {
-        navigation.navigate('FaceScanScreen');
+        //navigation.navigate('FaceScanScreen');
     }
     return (
         <SafeAreaView style={styles.container}>
@@ -55,12 +55,18 @@ export default function WalletScreen() {
                     </View>
 
                 </View>
+
             </View>
-            <View style={styles.bottomText}>
+            <View style={styles.homeBottom}>
                 <Text style={styles1.subtitle}>
-                    You're all set! Time to tokenize your ID and unlock seamless access.
+                    Start Verification
                 </Text>
+                <Text style={styles.description1}>
+                    You're all set! Tokenize your ID for secure and seamless access. This process verifies your identity while protecting against identity theft.
+                </Text>
+                
             </View>
+
             <ColoredButton text="Let's Start" onPress={handleStart} isEnabled={true} />
         </SafeAreaView>
     );

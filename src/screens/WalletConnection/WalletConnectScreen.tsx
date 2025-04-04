@@ -32,6 +32,7 @@ createAppKit({ projectId, chains, config, enableAnalytics: true });
 
 export default function WalletConnectScreen() {
     const navigation = useNavigation<StackNavigationProp<{ FaceScanScreen: undefined }>>();
+    const navigation1 = useNavigation<StackNavigationProp<{ ProfileScreen: undefined }>>();
     const { caipAddress, isConnected } = useSnapshot(AccountController.state);
     const [walletAddress, setWalletAddress] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
@@ -89,7 +90,7 @@ export default function WalletConnectScreen() {
 
     return (
         <View style={styles.container}>
-            <TopBar onBackPress={() => {navigation.goBack()}} onQrPress={() => console.log('QR Pressed')} />
+            <TopBar onBackPress={()=>{navigation1.navigate('ProfileScreen')}} onQrPress={() => console.log('QR Pressed')} />
             <View style={styles.container2}>
                 <Text style={styles1.title}>Connect to your Wallet</Text>
                 <Text style={styles1.description}>
@@ -101,7 +102,6 @@ export default function WalletConnectScreen() {
             
             {walletAddress && <Text style={styles1.description}>Connected Wallet: {walletAddress}</Text>}
             {!walletAddress && <ColoredButton text='Continue to Face Scan' onPress={() => navigation.navigate('FaceScanScreen')} isEnabled={!walletAddress} />} 
-
         </View>
     );
 }

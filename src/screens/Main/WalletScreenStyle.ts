@@ -104,4 +104,15 @@ export default StyleSheet.create({
         position: 'absolute',
         bottom: 130,
     },
+    homeBottom: {
+        marginTop: 50,
+        alignSelf: 'flex-start'
+    },
+    description1: {
+        color: '#6C6C6C',
+        fontSize: 14,
+        marginBottom: 20,
+        fontFamily: 'Poppins-Regular'
+    },
+    
 });

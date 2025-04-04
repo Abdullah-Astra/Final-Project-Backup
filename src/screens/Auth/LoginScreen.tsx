@@ -13,6 +13,7 @@ type RootStackParamList = {
     ProfileScreen: undefined;
     SignUpScreen: undefined;
     ContinueScreen: undefined;
+    WalletScreen: undefined;
 };
 
 export default function LoginScreen() {
@@ -41,6 +42,7 @@ export default function LoginScreen() {
 
                 Alert.alert("Success", response.data.message);
                 navigation.navigate('ContinueScreen');
+               //navigation.navigate('WalletScreen');
             } else {
                 Alert.alert("Error", response.data?.message || "Login failed.");
             }

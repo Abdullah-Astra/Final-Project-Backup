@@ -5,12 +5,18 @@ export default StyleSheet.create({
         flex: 1,
         backgroundColor: '#111111',
         padding: 16,
-        paddingTop: 100,
+        paddingTop: 70,
         alignItems: 'center',
+    },
+    subtitle: {
+        color: '#E0E0E0',
+        fontSize: 16,
+        fontFamily: 'Poppins-Regular'
     },
     cardBottom: {
         marginTop: 10,
     },
+    
     dotsIcon: {
         backgroundColor: '#1F1E1E',
         height: 42,
@@ -21,25 +27,33 @@ export default StyleSheet.create({
         borderWidth: 1,
         borderColor: '#505050'
     },
+    red: {
+        color: '#FF2D55',
+    },
+
     header: {
         flex: 1,
         flexDirection: 'row',
     },
     backgroundLogo: {
         position: 'absolute',
+        height: 375,
+        top: -30,
         right: 10,
-        top: 122,
-        height: 220,
-        width: 220,
+        width: 334,
     },
     cardContainer: {
-        width: 361,
-        height: 242,
-        borderRadius: 16,
+        width: '100%',
+        height: 235,
+        borderRadius: 8,
         overflow: 'hidden',
         position: 'relative',
-        backgroundColor: 'rgba(224, 224, 224, 0.4)',
-        padding: 20,
+        borderWidth: 1,
+        borderColor: '#505050',
+        backgroundColor: '#1F1E1E',
+        padding: 5,
+        paddingLeft: 20,
+        paddingRight: 20,
         alignSelf: 'center',
     },
     blurBackground: {
@@ -83,12 +97,7 @@ export default StyleSheet.create({
         marginBottom: 0,
         fontFamily: 'Poppins-SemiBold',
     },
-    walletRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginTop: -5,
-    },
+
     walletAddress: {
         color: 'white',
         fontSize: 14,
@@ -114,5 +123,81 @@ export default StyleSheet.create({
         marginBottom: 20,
         fontFamily: 'Poppins-Regular'
     },
-    
+    rect: {
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: '#505050',
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingTop: 5,
+        paddingBottom: 5,
+        justifyContent: 'space-between',
+    },
+    round: {
+        paddingLeft: 13,
+        paddingRight: 13,
+        height: 32,
+        backgroundColor: '#262626',
+        borderWidth: 1,
+        marginTop: -10,
+        borderColor: '#505050',
+        borderRadius: 16,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    centerView: {
+        flexDirection: 'row',
+        gap: 10,
+        marginTop: 10,
+        alignItems: 'center',
+    },
+    tokenContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginVertical: 15,
+      },
+      
+      tokenNumber: {
+        color: 'white',
+        fontSize: 14,
+        marginTop: -15,
+        fontFamily: 'Poppins-Regular'
+      },
+      
+      iconGroup: {
+        flexDirection: 'row',
+        gap: 10,
+      },
+      iconCircle: {
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        borderWidth: 1,
+        borderColor: '#505050',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#262626',
+      },
+      scanContainer: {
+        alignSelf: 'flex-start',
+      },
+      circleIcon: {
+        backgroundColor: '#1F1E1E',
+        height: 44,
+        width: 44,
+        borderRadius: '50%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderColor: '#505050',
+        borderWidth: 1,
+      },
+      scanInner: {
+        marginTop: 0,
+        marginBottom: 20,
+        flexDirection: 'row',
+        alignContent: 'center',
+        alignItems: 'center',
+        gap: 20,
+    },
 });

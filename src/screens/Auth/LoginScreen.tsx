@@ -35,14 +35,13 @@ export default function LoginScreen() {
 
             if (response.data.status == "success") {
                 const userId = response.data.data.id;
-                
-                // Store userId & email in AsyncStorage
+
                 await AsyncStorage.setItem('userId', userId);
                 await AsyncStorage.setItem('email', email);
 
                 Alert.alert("Success", response.data.message);
-                navigation.navigate('ContinueScreen');
-               //navigation.navigate('WalletScreen');
+                //navigation.navigate('ContinueScreen');
+                navigation.navigate('WalletScreen');
             } else {
                 Alert.alert("Error", response.data?.message || "Login failed.");
             }

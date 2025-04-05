@@ -7,6 +7,8 @@ import styles1 from '../../styles/style';
 import ColoredButton from '../../components/ColoredButton';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import Face from '../../assets/icons/face.svg';
+import Docs from '../../assets/icons/docs.svg';
 
 
 type RootStackParamList = {
@@ -21,35 +23,47 @@ export default function WalletScreen() {
     }
     return (
         <SafeAreaView style={styles.container}>
-            <Image source={require('../../assets/icons/astra.png')} style={styles.backgroundLogo} />
+            <Image style={styles.backgroundLogo} source={require('../../assets/images/astra.png')}/>
             <View style={styles.cardContainer}>
                 <BlurView style={styles.blurBackground} blurType="dark" blurAmount={10} />
                 <View style={styles.cardContent}>
                     <View style={styles.cardHeader}>
-                        <View style={styles.header}>
-                            <Image source={require('../../assets/icons/astra.png')} style={styles.logo} />
-                            <Text style={styles.cardTitle}>Astra</Text>
-                        </View>
+                        <Text style={styles1.description}>Welcome,</Text>
                         <TouchableOpacity style={styles.menuButton}>
                             <View style={styles.dotsIcon}>
                                 <Icon name="ellipsis-horizontal" size={20} color="white" />
                             </View>
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.cardBottom}>
-                        <Text style={styles1.description}>Current Balance</Text>
-                        <View style={styles.walletRow}>
-                            <Text style={styles.balance}>$150.68</Text>
-                            <TouchableOpacity>
-                                <Icon name="eye-off-outline" size={18} color="white" />
-                            </TouchableOpacity>
+                    <View style={styles.rect}>
+                        <View style={styles.centerView}>
+                            <Text style={styles1.description}>KYC:</Text>
+                            <View style={styles.round}>
+                                <Text style={styles.red}>Incomplete</Text>
+                            </View>
                         </View>
 
-                        <Text style={styles1.description}>Wallet Address</Text>
-                        <View style={styles.walletRow}>
-                            <Text style={styles.walletAddress}>0x1234..........8897</Text>
-                            <TouchableOpacity>
-                                <Icon name="eye-off-outline" size={18} color="white" />
+                        <View style={styles.centerView}>
+                            <Text style={styles1.description}>Account:</Text>
+                            <View style={styles.round}>
+                                <Text style={styles.red}>Verified</Text>
+                            </View>
+                        </View>
+                    </View>
+                    <View style={styles.tokenContainer}>
+                        {/* Left Column */}
+                        <View>
+                            <Text style={styles1.description}>Token Number:</Text>
+                            <Text style={styles.tokenNumber}>0xFE.......889</Text>
+                        </View>
+
+                        {/* Right Column - Icons */}
+                        <View style={styles.iconGroup}>
+                            <TouchableOpacity style={styles.iconCircle}>
+                                <Icon name="eye-off-outline" size={20} color="white" />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.iconCircle}>
+                                <Icon name="copy-outline" size={20} color="white" />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -64,7 +78,24 @@ export default function WalletScreen() {
                 <Text style={styles.description1}>
                     You're all set! Tokenize your ID for secure and seamless access. This process verifies your identity while protecting against identity theft.
                 </Text>
-                
+            </View>
+            <View style={styles.scanContainer}>
+                <View style={styles.scanInner}>
+                    <View style={styles.circleIcon}>
+                        <Face/>
+                    </View>
+                    <Text style={styles.subtitle}>
+                        Face Scan
+                    </Text>
+                </View>
+                <View style={styles.scanInner}>
+                    <View style={styles.circleIcon}>
+                        <Docs/>
+                    </View>
+                    <Text style={styles.subtitle}>
+                        Document Scan
+                    </Text>
+                </View>
             </View>
 
             <ColoredButton text="Let's Start" onPress={handleStart} isEnabled={true} />
